@@ -2,6 +2,7 @@ package pkgCore;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.stream.Stream;
 
 import pkgEnum.eRank;
 import pkgEnum.eSuit;
@@ -19,19 +20,57 @@ public class Deck {
 		Collections.shuffle(cardsInDeck);
 	}
 
-	//TODO: Fix the Draw method so it throws an exception if the deck is empty
+	
 	public Card Draw() {
 		return cardsInDeck.remove(0);
 	}
 	
-	//TODO: Write an overloaded Draw method to Draw a card of a given eSuit
 	
-	//TODO: Write an overloaded Draw method to Draw a card of a given eRank
+	
+	public int Draw(eSuit eSuit) {
+		for (Card newCard: this.cardsInDeck) {
+				if (newCard.geteSuit() == eSuit) {
+					cardsInDeck.remove(newCard);
+					return newCard;
+				}
+		}
+		return null;
+		
+		
+	public Card pkgEnum.eSuit eRank; {
+		for (Card newCard: this.cardsInDeck) {
+				if (newCard.geteRank() == eRank) {
+					cardsInDeck.remove(newCard);
+					return newCard;
+				}
+		}
+		return null;
+	} 
+	
+	
+	public int eSuit; {
+		Stream<Card> CardSuit = cardsInDeck.stream();
+						
+		return ((ArrayList<Card>) CardSuit).size();
+		
+}
 
-	//TODO: Write a method that will return the number of a given eSuit left in the deck.
-	
-	//TODO: Write a method that will return the number of a given eRank left in the deck.
-	
-	//TODO: Write a method that will return 0 or 1 if a given card is left in the deck.
+	public int Count(eRank,eRank); {
+		Stream<Card> CardRank = cardsInDeck.stream();
+						
+		return ((ArrayList<Card>) CardRank).size();
+}
+
+	int FinalCard(Card c){
+		for (Card cards:cardsInDeck)
+		{
+			if (cards == c)
+				return 1;
+		}
+		return 0;
+}
+}
+
+
 	
 }
